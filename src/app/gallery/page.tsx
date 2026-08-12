@@ -13,10 +13,10 @@ export default function GalleryPage() {
         title="Photos and frames that set the mood."
         intro="A flexible gallery area for Studio 7 to upload fresh photo sets frequently through the CMS."
       />
-      <section className="mx-auto grid max-w-7xl gap-4 px-5 pb-24 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-24 sm:grid-cols-2 lg:grid-cols-3">
         {galleryImages.map((item, index) => (
           <article
-            className={`group relative overflow-hidden rounded-lg ${
+            className={`group relative overflow-hidden ${
               index === 0 || index === 5 ? "sm:col-span-2" : ""
             }`}
             key={item.title}

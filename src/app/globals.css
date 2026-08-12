@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfaf7;
+  --background: #f8f3ea;
   --foreground: #171717;
-  --muted: #6f6a61;
-  --line: #e8e0d4;
-  --accent: #c8922f;
-  --soft: #f4efe6;
+  --muted: #756e63;
+  --line: #ddd0bd;
+  --accent: #b8893d;
+  --soft: #efe4d2;
 }
 
 * {
@@ -32,7 +32,7 @@ button {
 
 input::placeholder,
 textarea::placeholder {
-  color: rgba(255, 250, 242, 0.42);
+  color: rgba(23, 23, 23, 0.42);
 }
 
 a {
@@ -56,6 +56,17 @@ a {
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+}
+
+.display-serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.hairline {
+  height: 1px;
+  background: var(--line);
 }
 
 .fine-line {

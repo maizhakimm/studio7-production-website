@@ -13,15 +13,15 @@ export default function InquiryPage() {
         intro="No package table for now. The form collects the event information needed for a customised quotation."
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-24 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="glass h-fit rounded-lg p-6">
-          <h2 className="text-2xl font-black">What to prepare</h2>
-          <div className="mt-6 grid gap-4 text-sm text-[#6f6a61]">
+        <div className="h-fit border-y border-[#ddd0bd] py-8">
+          <h2 className="display-serif text-5xl leading-none">What to prepare</h2>
+          <div className="mt-8 grid gap-4 text-sm text-[#6f6a61]">
             <p>Event type, date and location.</p>
             <p>Whether you need photography, videography, live feed or live streaming.</p>
             <p>Coverage hours, venue details and any special moments to capture.</p>
           </div>
         </div>
-        <form className="grid gap-4 rounded-lg border border-[#e8e0d4] bg-white p-5 md:p-7">
+        <form className="grid gap-4 bg-white p-5 shadow-[0_24px_80px_rgba(61,43,19,0.08)] md:p-7">
           <div className="grid gap-4 md:grid-cols-2">
             <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Name" />
             <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Email or WhatsApp" />

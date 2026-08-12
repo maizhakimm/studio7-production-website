@@ -4,11 +4,11 @@ import { navItems } from "@/lib/content";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[#e8e0d4] bg-[#fbfaf7] px-5 py-10 text-[#171717]">
+    <footer className="border-t border-[#ddd0bd] bg-[#f8f3ea] px-5 py-10 text-[#171717]">
       <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[1.2fr_0.8fr_1fr]">
         <div>
           <div className="text-lg font-black tracking-[0.18em]">
-            STUDIO<span className="text-[#c8922f]">7</span>
+            STUDIO<span className="text-[#b8893d]">7</span>
           </div>
           <p className="mt-3 max-w-sm text-sm leading-6 text-[#6f6a61]">
             Videography and photography for weddings, corporate events and life moments across Malaysia and Singapore.
@@ -28,7 +28,7 @@ export function SiteFooter() {
           <span className="inline-flex items-center gap-2">
             <Mail size={16} /> Inquiry via website form
           </span>
-          <Link className="font-bold text-[#c8922f] transition hover:text-[#171717]" href="/studio">
+          <Link className="font-bold text-[#b8893d] transition hover:text-[#171717]" href="/studio">
             CMS Studio
           </Link>
         </div>

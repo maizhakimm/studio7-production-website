@@ -15,10 +15,12 @@ export default async function PortfolioPage() {
         title="Selected work across events and productions."
         intro="A visual-first archive for wedding films, corporate stories, ROM, engagements, birthdays and live event coverage."
       />
-      <section className="bg-white px-5 py-20 text-[#171717]">
-        <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
-          {portfolio.map((item) => (
-            <PortfolioCard item={item} key={item.title} />
+      <section className="bg-[#171717] px-5 py-20 text-white">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-6">
+          {portfolio.map((item, index) => (
+            <div className={index % 3 === 0 ? "md:col-span-3" : "md:col-span-2"} key={item.title}>
+              <PortfolioCard item={item} />
+            </div>
           ))}
         </div>
       </section>

@@ -19,8 +19,8 @@ export default function AboutPage() {
         title="A lively production studio for real events."
         intro="Studio 7 Production creates photo and video coverage for weddings, corporate work and personal celebrations without overloading the website with heavy copy."
       />
-      <section className="mx-auto grid max-w-7xl gap-8 px-5 pb-24 lg:grid-cols-[1fr_0.9fr]">
-        <div className="relative min-h-[420px] overflow-hidden rounded-lg">
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-24 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative min-h-[540px] overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=85"
             alt="Event production team atmosphere"
@@ -29,10 +29,10 @@ export default function AboutPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
         </div>
-        <div className="grid content-center gap-4">
+        <div className="grid content-center gap-0">
           {values.map((item) => (
-            <div className="glass rounded-lg p-5" key={item}>
-              <p className="text-xl font-black">{item}</p>
+            <div className="border-t border-[#ddd0bd] py-6" key={item}>
+              <p className="display-serif text-4xl leading-none">{item}</p>
             </div>
           ))}
         </div>

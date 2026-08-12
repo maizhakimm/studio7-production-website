@@ -13,26 +13,26 @@ export default function ContactPage() {
         title="Ready for Malaysia and Singapore enquiries."
         intro="The website can route visitors to the inquiry flow, Instagram and future WhatsApp contact once final details are confirmed."
       />
-      <section className="mx-auto grid max-w-7xl gap-4 px-5 pb-24 md:grid-cols-3">
-        <div className="glass rounded-lg p-6">
-          <MapPin className="text-[#c8922f]" />
-          <h2 className="mt-8 text-2xl font-black">Coverage</h2>
+      <section className="mx-auto grid max-w-7xl gap-0 px-5 pb-24 md:grid-cols-3">
+        <div className="border-y border-[#ddd0bd] py-8">
+          <MapPin className="text-[#b8893d]" />
+          <h2 className="mt-8 text-2xl font-semibold">Coverage</h2>
           <p className="mt-3 text-[#6f6a61]">Malaysia & Singapore</p>
         </div>
-        <div className="glass rounded-lg p-6">
-          <AtSign className="text-[#c8922f]" />
-          <h2 className="mt-8 text-2xl font-black">Instagram</h2>
+        <div className="border-y border-[#ddd0bd] py-8 md:px-8">
+          <AtSign className="text-[#b8893d]" />
+          <h2 className="mt-8 text-2xl font-semibold">Instagram</h2>
           <a
-            className="mt-3 block text-[#6f6a61] transition hover:text-[#c8922f]"
+            className="mt-3 block text-[#6f6a61] transition hover:text-[#b8893d]"
             href="https://www.instagram.com/studio7production_videophoto"
           >
             @studio7production_videophoto
           </a>
         </div>
-        <div className="glass rounded-lg p-6">
-          <Mail className="text-[#c8922f]" />
-          <h2 className="mt-8 text-2xl font-black">Inquiry</h2>
-          <Link className="mt-3 block text-[#6f6a61] transition hover:text-[#c8922f]" href="/inquiry">
+        <div className="border-y border-[#ddd0bd] py-8">
+          <Mail className="text-[#b8893d]" />
+          <h2 className="mt-8 text-2xl font-semibold">Inquiry</h2>
+          <Link className="mt-3 block text-[#6f6a61] transition hover:text-[#b8893d]" href="/inquiry">
             Submit project details
           </Link>
         </div>
