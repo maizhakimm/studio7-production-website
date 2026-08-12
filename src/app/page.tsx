@@ -1,46 +1,33 @@
 import Image from "next/image";
-import { ArrowRight, Camera, Clapperboard, Mail, MapPin, Play, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Camera, Clapperboard, Play, Sparkles } from "lucide-react";
+import { PortfolioCard } from "@/components/portfolio-card";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { getHomeContent } from "@/lib/get-home-content";
 
 export default async function Home() {
   const { coverage, headline, heroImage, intro, portfolio, services, stats } =
     await getHomeContent();
+  const featured = portfolio.slice(0, 4);
 
   return (
     <main className="min-h-screen overflow-hidden">
-      <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0c0b10]/75 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
-          <a className="text-lg font-black tracking-[0.18em]" href="#">
-            STUDIO<span className="text-[#f3b23d]">7</span>
-          </a>
-          <nav className="hidden items-center gap-7 text-sm text-white/72 md:flex">
-            <a className="transition hover:text-white" href="#services">Services</a>
-            <a className="transition hover:text-white" href="#portfolio">Portfolio</a>
-            <a className="transition hover:text-white" href="#inquiry">Inquiry</a>
-            <a className="transition hover:text-white" href="#contact">Contact</a>
-          </nav>
-          <a
-            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#161116] transition hover:bg-[#f3b23d]"
-            href="#inquiry"
-          >
-            Get a Quote
-          </a>
-        </div>
-      </header>
+      <SiteHeader />
 
       <section className="relative min-h-screen px-5 pt-28">
         <Image
           src={heroImage}
-          alt="Wedding production moment"
+          alt="Studio 7 event production"
           fill
           priority
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0c0b10] via-[#0c0b10]/78 to-[#0c0b10]/20" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(243,178,61,0.24),transparent_32%),radial-gradient(circle_at_70%_80%,rgba(72,214,200,0.18),transparent_28%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0b0a10] via-[#0b0a10]/82 to-[#0b0a10]/22" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_22%,rgba(243,178,61,0.24),transparent_30%),radial-gradient(circle_at_70%_78%,rgba(72,214,200,0.18),transparent_26%)]" />
 
-        <div className="relative mx-auto flex min-h-[calc(100vh-7rem)] max-w-7xl items-center">
-          <div className="max-w-3xl py-16">
+        <div className="relative mx-auto grid min-h-[calc(100vh-7rem)] max-w-7xl items-center gap-10 py-16 lg:grid-cols-[1fr_0.86fr]">
+          <div className="max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white/82">
               <Sparkles size={16} />
               {coverage} event coverage
@@ -48,22 +35,38 @@ export default async function Home() {
             <h1 className="max-w-3xl text-5xl font-black leading-[0.95] md:text-7xl">
               {headline}
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-white/74">
-              {intro}
-            </p>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-white/74">{intro}</p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 className="inline-flex items-center gap-2 rounded-full bg-[#f3b23d] px-6 py-3 font-bold text-[#17110d] transition hover:bg-white"
-                href="#portfolio"
+                href="/portfolio"
               >
                 View Portfolio <ArrowRight size={18} />
-              </a>
-              <a
+              </Link>
+              <Link
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3 font-bold text-white transition hover:bg-white hover:text-[#17110d]"
-                href="#inquiry"
+                href="/inquiry"
               >
                 <Play size={18} /> Start Inquiry
-              </a>
+              </Link>
+            </div>
+          </div>
+
+          <div className="hidden gap-4 lg:grid">
+            <div className="grid grid-cols-2 gap-4">
+              {featured.slice(0, 2).map((item) => (
+                <div className="relative aspect-[3/4] overflow-hidden rounded-lg" key={item.title}>
+                  <Image src={item.image} alt={item.title} fill className="object-cover" />
+                </div>
+              ))}
+            </div>
+            <div className="glass rounded-lg p-5">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#f3b23d]">
+                No fixed packages
+              </p>
+              <p className="mt-3 text-2xl font-black">
+                Every quote starts with the event details.
+              </p>
             </div>
           </div>
         </div>
@@ -80,18 +83,19 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="services" className="mx-auto max-w-7xl px-5 py-24">
+      <section className="mx-auto max-w-7xl px-5 py-24">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#48d6c8]">Services</p>
+            <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#48d6c8]">
+              Services
+            </p>
             <h2 className="mt-3 max-w-2xl text-4xl font-black md:text-5xl">
-              Built around the event, quoted around the details.
+              Wedding, corporate, ROM, live coverage and more.
             </h2>
           </div>
-          <p className="max-w-md text-white/62">
-            Studio 7 does not need fixed package cards yet. The website leads visitors
-            into an inquiry flow so the team can quote properly.
-          </p>
+          <Link className="inline-flex items-center gap-2 font-bold text-[#f3b23d]" href="/services">
+            View services <ArrowRight size={18} />
+          </Link>
         </div>
 
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -100,89 +104,75 @@ export default async function Home() {
               key={service.title}
               className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-[#f3b23d]/60 hover:bg-white/[0.07]"
             >
-              <div className="mb-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#f3b23d]">
+              <div className="mb-8 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#f3b23d]">
                 {index % 2 === 0 ? <Camera size={20} /> : <Clapperboard size={20} />}
               </div>
               <h3 className="text-xl font-bold">{service.title}</h3>
               {service.shortDescription ? (
-                <p className="mt-3 text-sm leading-6 text-white/58">
-                  {service.shortDescription}
-                </p>
+                <p className="mt-3 text-sm leading-6 text-white/58">{service.shortDescription}</p>
               ) : null}
             </div>
           ))}
         </div>
       </section>
 
-      <section id="portfolio" className="bg-[#fffaf2] px-5 py-24 text-[#161116]">
+      <section className="bg-[#fffaf2] px-5 py-24 text-[#161116]">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#b36b00]">Portfolio</p>
+              <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#b36b00]">
+                Portfolio
+              </p>
               <h2 className="mt-3 max-w-2xl text-4xl font-black md:text-5xl">
                 Less talking. More proof.
               </h2>
             </div>
-            <a className="inline-flex items-center gap-2 font-bold" href="#inquiry">
-              Plan an event <ArrowRight size={18} />
-            </a>
+            <Link className="inline-flex items-center gap-2 font-bold" href="/portfolio">
+              Open portfolio <ArrowRight size={18} />
+            </Link>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {portfolio.map((item) => (
-              <article key={item.title} className="group overflow-hidden rounded-lg bg-[#161116]">
-                <div className="relative aspect-[4/3]">
-                  <Image src={item.image} alt={item.title} fill className="object-cover transition duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f3b23d]">{item.category}</p>
-                    <h3 className="mt-2 text-3xl font-black">{item.title}</h3>
-                  </div>
-                </div>
-              </article>
+            {featured.map((item) => (
+              <PortfolioCard item={item} key={item.title} />
             ))}
           </div>
         </div>
       </section>
 
-      <section id="inquiry" className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-24 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
-          <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#f36f6f]">Inquiry</p>
-          <h2 className="mt-3 text-4xl font-black md:text-5xl">Tell us the date, mood and coverage.</h2>
-          <p className="mt-5 max-w-lg leading-8 text-white/65">
-            This form replaces a generic package table. It collects the event details
-            Studio 7 needs before preparing a customised quotation.
+          <p className="text-sm font-bold uppercase tracking-[0.22em] text-[#f36f6f]">
+            Inquiry flow
           </p>
+          <h2 className="mt-3 text-4xl font-black md:text-5xl">
+            Custom coverage starts with a simple brief.
+          </h2>
         </div>
-
-        <form className="glass grid gap-4 rounded-lg p-5 md:p-7">
-          <div className="grid gap-4 md:grid-cols-2">
-            <input className="rounded-lg border border-white/10 bg-black/25 px-4 py-3 outline-none focus:border-[#f3b23d]" placeholder="Name" />
-            <input className="rounded-lg border border-white/10 bg-black/25 px-4 py-3 outline-none focus:border-[#f3b23d]" placeholder="Email or WhatsApp" />
-          </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <input className="rounded-lg border border-white/10 bg-black/25 px-4 py-3 outline-none focus:border-[#f3b23d]" placeholder="Event type" />
-            <input className="rounded-lg border border-white/10 bg-black/25 px-4 py-3 outline-none focus:border-[#f3b23d]" placeholder="Event date" />
-          </div>
-          <textarea className="min-h-32 rounded-lg border border-white/10 bg-black/25 px-4 py-3 outline-none focus:border-[#f3b23d]" placeholder="Share location, coverage hours, photo/video needs and anything important." />
-          <button className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 font-black text-[#161116] transition hover:bg-[#f3b23d]" type="button">
-            Submit Inquiry <Mail size={18} />
-          </button>
-        </form>
+        <div className="grid gap-3">
+          {[
+            "Event type",
+            "Date and location",
+            "Photo, video or live coverage",
+            "Quote prepared by Studio 7"
+          ].map((item, index) => (
+            <div className="glass flex items-center gap-4 rounded-lg p-4" key={item}>
+              <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f3b23d] font-black text-[#161116]">
+                {index + 1}
+              </span>
+              <p className="font-bold">{item}</p>
+            </div>
+          ))}
+          <Link
+            className="mt-4 inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3 font-black text-[#161116] transition hover:bg-[#f3b23d]"
+            href="/inquiry"
+          >
+            Submit Inquiry <ArrowRight size={18} />
+          </Link>
+        </div>
       </section>
 
-      <footer id="contact" className="border-t border-white/10 px-5 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
-          <div>
-            <div className="text-lg font-black tracking-[0.18em]">STUDIO<span className="text-[#f3b23d]">7</span></div>
-            <p className="mt-2 text-sm text-white/58">Videography & photography across Malaysia and Singapore.</p>
-          </div>
-          <div className="flex flex-wrap gap-4 text-sm text-white/70">
-            <span className="inline-flex items-center gap-2"><MapPin size={16} /> Malaysia & Singapore</span>
-            <span className="inline-flex items-center gap-2"><Mail size={16} /> Inquiry via website form</span>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

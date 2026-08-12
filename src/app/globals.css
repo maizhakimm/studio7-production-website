@@ -24,6 +24,21 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 250, 242, 0.42);
+}
+
+a {
+  text-decoration: none;
+}
+
 ::selection {
   background: var(--accent);
   color: #141014;
