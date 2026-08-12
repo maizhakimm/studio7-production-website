@@ -9,9 +9,12 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@sanity/image-url": "latest",
     "next": "latest",
+    "next-sanity": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "sanity": "latest",
     "lucide-react": "latest",
     "clsx": "latest"
   },

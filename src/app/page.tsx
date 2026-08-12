@@ -1,8 +1,11 @@
 import Image from "next/image";
 import { ArrowRight, Camera, Clapperboard, Mail, MapPin, Play, Sparkles } from "lucide-react";
-import { portfolio, services, stats } from "@/lib/content";
+import { getHomeContent } from "@/lib/get-home-content";
 
-export default function Home() {
+export default async function Home() {
+  const { coverage, headline, heroImage, intro, portfolio, services, stats } =
+    await getHomeContent();
+
   return (
     <main className="min-h-screen overflow-hidden">
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#0c0b10]/75 backdrop-blur-xl">
@@ -27,7 +30,7 @@ export default function Home() {
 
       <section className="relative min-h-screen px-5 pt-28">
         <Image
-          src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90"
+          src={heroImage}
           alt="Wedding production moment"
           fill
           priority
@@ -40,14 +43,13 @@ export default function Home() {
           <div className="max-w-3xl py-16">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm text-white/82">
               <Sparkles size={16} />
-              Malaysia & Singapore event coverage
+              {coverage} event coverage
             </div>
             <h1 className="max-w-3xl text-5xl font-black leading-[0.95] md:text-7xl">
-              Cinematic photo and video for moments that move.
+              {headline}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-white/74">
-              Visual-first storytelling for weddings, corporate events, ROM, engagements,
-              birthdays, live feed and live streaming.
+              {intro}
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -95,13 +97,18 @@ export default function Home() {
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((service, index) => (
             <div
-              key={service}
+              key={service.title}
               className="group rounded-lg border border-white/10 bg-white/[0.04] p-5 transition hover:-translate-y-1 hover:border-[#f3b23d]/60 hover:bg-white/[0.07]"
             >
               <div className="mb-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-[#f3b23d]">
                 {index % 2 === 0 ? <Camera size={20} /> : <Clapperboard size={20} />}
               </div>
-              <h3 className="text-xl font-bold">{service}</h3>
+              <h3 className="text-xl font-bold">{service.title}</h3>
+              {service.shortDescription ? (
+                <p className="mt-3 text-sm leading-6 text-white/58">
+                  {service.shortDescription}
+                </p>
+              ) : null}
             </div>
           ))}
         </div>
