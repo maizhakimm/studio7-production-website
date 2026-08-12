@@ -6,6 +6,19 @@ Website for Studio 7 Production, a videography and photography company serving M
 
 - Next.js
 - Tailwind CSS
-- Sanity CMS, planned
+- Sanity CMS
 - Cloudflare Pages, planned
 - Resend, planned
+
+## CMS Readiness
+
+The website can run without Sanity credentials by using local fallback content. Once a
+Sanity project is created, add the values from `.env.example` and manage content at
+`/studio`.
+
+CMS content types:
+
+- Site settings
+- Services
+- Portfolio projects
+- Testimonials
