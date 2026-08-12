@@ -15,7 +15,7 @@ export default async function PortfolioPage() {
         title="Selected work across events and productions."
         intro="A visual-first archive for wedding films, corporate stories, ROM, engagements, birthdays and live event coverage."
       />
-      <section className="bg-[#fffaf2] px-5 py-20 text-[#161116]">
+      <section className="bg-white px-5 py-20 text-[#171717]">
         <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2">
           {portfolio.map((item) => (
             <PortfolioCard item={item} key={item.title} />

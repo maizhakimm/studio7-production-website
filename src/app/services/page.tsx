@@ -17,12 +17,12 @@ export default async function ServicesPage() {
       />
       <section className="mx-auto grid max-w-7xl gap-4 px-5 pb-24 md:grid-cols-2">
         {services.map((service, index) => (
-          <article className="glass rounded-lg p-6" key={service.title}>
-            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-[#f3b23d]">
+          <article className="rounded-lg border border-[#e8e0d4] bg-white p-6" key={service.title}>
+            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-[#f4efe6] text-[#c8922f]">
               {index % 2 === 0 ? <Camera size={22} /> : <Clapperboard size={22} />}
             </div>
             <h2 className="text-3xl font-black">{service.title}</h2>
-            <p className="mt-3 leading-7 text-white/64">
+            <p className="mt-3 leading-7 text-[#6f6a61]">
               {service.detail || service.shortDescription}
             </p>
           </article>

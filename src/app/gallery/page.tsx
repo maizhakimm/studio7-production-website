@@ -30,7 +30,7 @@ export default function GalleryPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5">
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f3b23d]">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f5c46d]">
                   {item.category}
                 </p>
                 <h2 className="mt-2 text-2xl font-black">{item.title}</h2>

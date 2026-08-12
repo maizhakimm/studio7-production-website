@@ -15,24 +15,24 @@ export default function ContactPage() {
       />
       <section className="mx-auto grid max-w-7xl gap-4 px-5 pb-24 md:grid-cols-3">
         <div className="glass rounded-lg p-6">
-          <MapPin className="text-[#f3b23d]" />
+          <MapPin className="text-[#c8922f]" />
           <h2 className="mt-8 text-2xl font-black">Coverage</h2>
-          <p className="mt-3 text-white/64">Malaysia & Singapore</p>
+          <p className="mt-3 text-[#6f6a61]">Malaysia & Singapore</p>
         </div>
         <div className="glass rounded-lg p-6">
-          <AtSign className="text-[#f3b23d]" />
+          <AtSign className="text-[#c8922f]" />
           <h2 className="mt-8 text-2xl font-black">Instagram</h2>
           <a
-            className="mt-3 block text-white/64 transition hover:text-[#f3b23d]"
+            className="mt-3 block text-[#6f6a61] transition hover:text-[#c8922f]"
             href="https://www.instagram.com/studio7production_videophoto"
           >
             @studio7production_videophoto
           </a>
         </div>
         <div className="glass rounded-lg p-6">
-          <Mail className="text-[#f3b23d]" />
+          <Mail className="text-[#c8922f]" />
           <h2 className="mt-8 text-2xl font-black">Inquiry</h2>
-          <Link className="mt-3 block text-white/64 transition hover:text-[#f3b23d]" href="/inquiry">
+          <Link className="mt-3 block text-[#6f6a61] transition hover:text-[#c8922f]" href="/inquiry">
             Submit project details
           </Link>
         </div>
