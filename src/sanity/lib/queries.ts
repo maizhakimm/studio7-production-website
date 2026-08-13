@@ -13,9 +13,22 @@ export const homePageQuery = groq`{
   },
   "portfolio": *[_type == "portfolioProject"] | order(featured desc, eventDate desc, _createdAt desc)[0...6] {
     title,
+    slug,
     category,
     location,
     coverImage,
     videoUrl
   }
+}`;
+
+export const portfolioPageQuery = groq`*[_type == "portfolioProject"] | order(eventDate desc, _createdAt desc) {
+  title,
+  slug,
+  category,
+  location,
+  eventDate,
+  coverImage,
+  gallery,
+  videoUrl,
+  excerpt
 }`;

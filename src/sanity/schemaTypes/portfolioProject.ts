@@ -30,6 +30,7 @@ export const portfolioProject = defineType({
           "ROM",
           "Pre-wedding",
           "Birthday",
+          "Live Feed",
           "Live Streaming",
           "Other"
         ]

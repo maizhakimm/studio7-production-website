@@ -9,8 +9,8 @@ export default function InquiryPage() {
       <SiteHeader />
       <PageHero
         eyebrow="Inquiry"
-        title="Share the details. Studio 7 will quote from there."
-        intro="No package table for now. The form collects the event information needed for a customised quotation."
+        title="Tell us what you are planning."
+        intro="Share the date, place and kind of coverage you need. Studio 7 will prepare a quotation around your event."
       />
       <section className="mx-auto grid max-w-7xl gap-10 px-5 pb-24 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="h-fit border-y border-[#ddd0bd] py-8">
@@ -21,20 +21,23 @@ export default function InquiryPage() {
             <p>Coverage hours, venue details and any special moments to capture.</p>
           </div>
         </div>
-        <form className="grid gap-4 bg-white p-5 shadow-[0_24px_80px_rgba(61,43,19,0.08)] md:p-7">
+        <form className="grid gap-5 border border-black/10 bg-white p-5 shadow-[0_24px_80px_rgba(61,43,19,0.08)] md:p-8">
           <div className="grid gap-4 md:grid-cols-2">
-            <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Name" />
-            <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Email or WhatsApp" />
+            <label className="grid gap-2 text-sm font-semibold">Your name<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="name" placeholder="Full name" required /></label>
+            <label className="grid gap-2 text-sm font-semibold">Email<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="email" placeholder="name@email.com" required type="email" /></label>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Event type" />
-            <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Event date" />
+            <label className="grid gap-2 text-sm font-semibold">Phone or WhatsApp<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="phone" placeholder="+60" required type="tel" /></label>
+            <label className="grid gap-2 text-sm font-semibold">Event date<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="eventDate" type="date" /></label>
           </div>
-          <input className="rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Location" />
-          <textarea className="min-h-36 rounded-lg border border-[#e8e0d4] bg-[#fbfaf7] px-4 py-3 outline-none focus:border-[#c8922f]" placeholder="Tell us the coverage hours, photo/video needs and anything important." />
-          <button className="inline-flex items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 font-black text-white transition hover:bg-[#c8922f]" type="button">
-            Submit Inquiry <Mail size={18} />
+          <label className="grid gap-2 text-sm font-semibold">Event type<select className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" defaultValue="" name="eventType" required><option disabled value="">Select an event</option><option>Wedding</option><option>Corporate</option><option>Engagement</option><option>ROM</option><option>Pre-wedding</option><option>Birthday</option><option>Live Feed</option><option>Live Streaming</option><option>Other</option></select></label>
+          <label className="grid gap-2 text-sm font-semibold">Location<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="location" placeholder="Venue, city or country" /></label>
+          <fieldset className="grid gap-3"><legend className="text-sm font-semibold">Coverage needed</legend><div className="flex flex-wrap gap-3">{["Photography", "Videography", "Live Feed", "Live Streaming"].map((item) => <label className="flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-sm" key={item}><input name="coverage" type="checkbox" value={item} /> {item}</label>)}</div></fieldset>
+          <label className="grid gap-2 text-sm font-semibold">Tell us more<textarea className="min-h-36 rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="message" placeholder="Coverage hours, venue details, number of guests and anything important." /></label>
+          <button className="premium-button inline-flex items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 font-semibold text-white" type="button" title="Email delivery setup pending">
+            Send event details <Mail size={18} />
           </button>
+          <p className="text-center text-xs text-black/45">Form delivery will be enabled after the recipient email is confirmed.</p>
         </form>
       </section>
       <SiteFooter />

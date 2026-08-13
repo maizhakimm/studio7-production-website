@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import type { PortfolioItem } from "@/lib/content";
 
 export function PortfolioCard({ item }: { item: PortfolioItem }) {
   return (
-    <article className="group overflow-hidden">
+    <Link className="portfolio-tile group block overflow-hidden bg-[#141414]" href={`/portfolio/${item.slug}`}>
       <div className="relative aspect-[4/3]">
         <Image
           src={item.image}
@@ -16,10 +18,13 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
           <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f5c46d]">
             {item.category}
           </p>
-          <h3 className="mt-2 text-3xl font-black">{item.title}</h3>
+          <div className="flex items-end justify-between gap-4">
+            <h3 className="display-serif mt-2 text-3xl">{item.title}</h3>
+            <ArrowUpRight className="tile-arrow shrink-0" size={22} />
+          </div>
           {item.location ? <p className="mt-2 text-sm text-white/70">{item.location}</p> : null}
         </div>
       </div>
-    </article>
+    </Link>
   );
 }

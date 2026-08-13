@@ -21,6 +21,7 @@ type SanityHomeResponse = {
   }>;
   portfolio?: Array<{
     title?: string;
+    slug?: { current?: string };
     category?: string;
     location?: string;
     coverImage?: unknown;
@@ -53,7 +54,10 @@ function mapPortfolio(items?: SanityHomeResponse["portfolio"]): PortfolioItem[] 
 
         return {
           title: item.title as string,
+          slug: item.slug?.current || `project-${index + 1}`,
           category: item.category as string,
+          categorySlug:
+            fallbackHomeContent.portfolio.find((entry) => entry.category === item.category)?.categorySlug || "other",
           image,
           location: item.location,
           videoUrl: item.videoUrl
