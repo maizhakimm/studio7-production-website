@@ -136,9 +136,9 @@ export const stats = [
 ];
 
 export const fallbackHomeContent: HomeContent = {
-  headline: "Stories worth watching twice.",
+  headline: "Cinematic photo and video for moments that move.",
   intro:
-    "Photo and video coverage for weddings, corporate events and everything in between.",
+    "Visual-first storytelling for weddings, corporate events, ROM, engagements, birthdays, live feed and live streaming.",
   coverage: "Malaysia & Singapore",
   heroImage:
     "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=90",
