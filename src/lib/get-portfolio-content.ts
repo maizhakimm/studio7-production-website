@@ -7,6 +7,7 @@ type SanityProject = {
   title?: string;
   slug?: { current?: string };
   category?: string;
+  subcategory?: string;
   location?: string;
   coverImage?: Parameters<typeof urlFor>[0];
   gallery?: Parameters<typeof urlFor>[0][];
@@ -20,6 +21,7 @@ function categorySlug(category: string) {
     Corporate: "corporate",
     Engagement: "engagements",
     ROM: "rom",
+    "Registration of Marriage": "rom",
     "Pre-wedding": "pre-wedding",
     Birthday: "birthdays",
     "Live Feed": "live-feed",
@@ -43,6 +45,7 @@ function mapProject(item: SanityProject, index: number): PortfolioItem | null {
     slug: item.slug.current,
     category: item.category,
     categorySlug: categorySlug(item.category),
+    subcategory: item.subcategory || item.category,
     image,
     gallery,
     location: item.location,

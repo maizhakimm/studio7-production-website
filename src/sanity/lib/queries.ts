@@ -15,6 +15,7 @@ export const homePageQuery = groq`{
     title,
     slug,
     category,
+    subcategory,
     location,
     coverImage,
     videoUrl
@@ -25,6 +26,7 @@ export const portfolioPageQuery = groq`*[_type == "portfolioProject"] | order(ev
   title,
   slug,
   category,
+  subcategory,
   location,
   eventDate,
   coverImage,

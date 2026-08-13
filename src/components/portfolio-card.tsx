@@ -15,8 +15,8 @@ export function PortfolioCard({ item }: { item: PortfolioItem }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/68 via-black/8 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#f5c46d]">
-            {item.category}
+          <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#f5c46d]">
+            {item.subcategory}
           </p>
           <div className="flex items-end justify-between gap-4">
             <h3 className="display-serif mt-2 text-3xl">{item.title}</h3>

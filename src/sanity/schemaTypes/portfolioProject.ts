@@ -27,7 +27,7 @@ export const portfolioProject = defineType({
           "Wedding",
           "Corporate",
           "Engagement",
-          "ROM",
+          "Registration of Marriage",
           "Pre-wedding",
           "Birthday",
           "Live Feed",
@@ -35,6 +35,13 @@ export const portfolioProject = defineType({
           "Other"
         ]
       },
+      validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: "subcategory",
+      title: "Portfolio Type",
+      description: "For example: Sikh Wedding, Product Launch, or Civil Ceremony.",
+      type: "string",
       validation: (rule) => rule.required()
     }),
     defineField({

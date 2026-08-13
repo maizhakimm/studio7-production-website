@@ -9,6 +9,7 @@ export type PortfolioItem = {
   slug: string;
   category: string;
   categorySlug: string;
+  subcategory: string;
   image: string;
   gallery?: string[];
   location?: string;
@@ -55,8 +56,8 @@ export const fallbackServices: ServiceItem[] = [
     detail: "Photo and video coverage shaped around the couple, setting and family flow."
   },
   {
-    title: "ROM",
-    shortDescription: "Register of marriage coverage with a clean story.",
+    title: "Registration of Marriage",
+    shortDescription: "Civil registration coverage with a clean, intimate story.",
     detail: "Compact coverage for official ceremonies, portraits and intimate celebrations."
   },
   {
@@ -81,94 +82,84 @@ export const fallbackServices: ServiceItem[] = [
   }
 ];
 
+const weddingImages = [
+  "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=80"
+];
+const corporateImages = [
+  "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
+];
+const engagementImages = ["https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80", ...weddingImages];
+const preWeddingImages = ["https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=1200&q=80", ...weddingImages];
+const birthdayImages = ["https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=80"];
+const liveImages = ["https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80", "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80"];
+
+function makePortfolio(
+  category: string,
+  categorySlug: string,
+  location: string,
+  images: string[],
+  projects: Array<[title: string, subcategory: string]>
+): PortfolioItem[] {
+  return projects.map(([title, subcategory], index) => ({
+    title,
+    slug: `${categorySlug}-${title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`,
+    category,
+    categorySlug,
+    subcategory,
+    location,
+    image: images[index % images.length],
+    gallery: [images[index % images.length], images[(index + 1) % images.length], images[(index + 2) % images.length]],
+    description: `A sample ${subcategory.toLowerCase()} portfolio entry prepared for the Studio 7 CMS structure. Replace this with the real client story, gallery and film.`
+  }));
+}
+
 export const fallbackPortfolio: PortfolioItem[] = [
-  {
-    title: "Wedding Films",
-    slug: "wedding-films-malaysia",
-    category: "Wedding",
-    categorySlug: "weddings",
-    location: "Malaysia",
-    description: "Emotional ceremony coverage with cinematic highlight treatment.",
-    image:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Corporate Stories",
-    slug: "corporate-event-stories",
-    category: "Corporate",
-    categorySlug: "corporate",
-    location: "Malaysia",
-    description: "Brand and corporate event visuals for teams, launches and milestones.",
-    image:
-      "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Engagement Moments",
-    slug: "engagement-moments-singapore",
-    category: "Engagement",
-    categorySlug: "engagements",
-    location: "Singapore",
-    description: "Soft, personal portraits and event coverage for engagement sessions.",
-    image:
-      "https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Live Event Coverage",
-    slug: "live-feed-event-coverage",
-    category: "Live Feed",
-    categorySlug: "live-feed",
-    location: "Malaysia",
-    description: "Live feed and streaming support for stages, halls and hybrid audiences.",
-    image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "ROM Ceremony",
-    slug: "rom-ceremony-singapore",
-    category: "ROM",
-    categorySlug: "rom",
-    location: "Singapore",
-    description: "Clean, intimate coverage for register of marriage ceremonies.",
-    image:
-      "https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Birthday Highlights",
-    slug: "birthday-event-highlights",
-    category: "Birthday",
-    categorySlug: "birthdays",
-    location: "Malaysia",
-    description: "Colourful family event coverage made for sharing and remembering.",
-    image:
-      "https://images.unsplash.com/photo-1464349153735-7db50ed83c84?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Pre-wedding Portraits",
-    slug: "pre-wedding-portraits",
-    category: "Pre-wedding",
-    categorySlug: "pre-wedding",
-    location: "Malaysia",
-    description: "Directed portraits and cinematic couple stories created before the wedding day.",
-    image:
-      "https://images.unsplash.com/photo-1509927083803-4bd519298ac4?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    title: "Hybrid Event Streaming",
-    slug: "hybrid-event-live-streaming",
-    category: "Live Streaming",
-    categorySlug: "live-streaming",
-    location: "Malaysia",
-    description: "Multi-camera streaming for remote guests, corporate audiences and private celebrations.",
-    image:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80"
-  }
+  ...makePortfolio("Wedding", "weddings", "Malaysia", weddingImages, [
+    ["Indian Wedding Celebration", "Indian Wedding"], ["Sikh Anand Karaj", "Sikh Wedding"],
+    ["Hindu Wedding Ceremony", "Hindu Wedding"], ["Malay Wedding Reception", "Malay Wedding"],
+    ["Church Wedding Story", "Church Wedding"], ["Western Garden Wedding", "Western Wedding"],
+    ["Intimate Nikah Ceremony", "Muslim Wedding"], ["Multicultural Wedding Weekend", "Multicultural Wedding"]
+  ]),
+  ...makePortfolio("Corporate", "corporate", "Malaysia", corporateImages, [
+    ["Annual Leadership Conference", "Conference"], ["New Product Launch", "Product Launch"],
+    ["Company Town Hall", "Town Hall"], ["Corporate Gala Evening", "Gala Dinner"],
+    ["Brand Campaign Production", "Brand Content"], ["Team Profile Series", "Corporate Portraits"],
+    ["Industry Awards Night", "Awards Ceremony"]
+  ]),
+  ...makePortfolio("Engagement", "engagements", "Singapore", engagementImages, [
+    ["Garden Engagement Celebration", "Engagement Ceremony"], ["Intimate Family Engagement", "Family Celebration"],
+    ["Modern Engagement Portraits", "Portrait Session"], ["Evening Engagement Reception", "Reception"]
+  ]),
+  ...makePortfolio("Registration of Marriage", "rom", "Singapore", weddingImages, [
+    ["Civil Marriage Ceremony", "Civil Ceremony"], ["Registry Day Portraits", "Registry Portraits"],
+    ["Intimate Marriage Celebration", "Intimate Celebration"]
+  ]),
+  ...makePortfolio("Pre-wedding", "pre-wedding", "Malaysia", preWeddingImages, [
+    ["City Pre-wedding Story", "Urban"], ["Coastal Pre-wedding Session", "Beach"],
+    ["Garden Editorial Portraits", "Garden"], ["Studio Couple Portraits", "Studio"]
+  ]),
+  ...makePortfolio("Birthday", "birthdays", "Malaysia", birthdayImages, [
+    ["First Birthday Celebration", "Children's Birthday"], ["Milestone Birthday Dinner", "Milestone Birthday"],
+    ["Family Birthday Gathering", "Family Celebration"]
+  ]),
+  ...makePortfolio("Live Feed", "live-feed", "Malaysia", liveImages, [
+    ["Conference Screen Production", "Conference"], ["Wedding Hall Live Feed", "Wedding"]
+  ]),
+  ...makePortfolio("Live Streaming", "live-streaming", "Malaysia", liveImages, [
+    ["Hybrid Corporate Broadcast", "Corporate Broadcast"], ["Private Event Livestream", "Private Event"]
+  ])
 ];
 
 export const portfolioCategories = [
   { title: "Weddings", slug: "weddings", description: "Wedding photography and cinematic films." },
   { title: "Corporate", slug: "corporate", description: "Events, launches and brand stories." },
   { title: "Engagements", slug: "engagements", description: "Engagement celebrations and portraits." },
-  { title: "ROM", slug: "rom", description: "Register of marriage ceremonies." },
+  { title: "Registration of Marriage", slug: "rom", description: "Civil registration ceremonies and intimate celebrations." },
   { title: "Pre-wedding", slug: "pre-wedding", description: "Directed couple portraits and films." },
   { title: "Birthdays", slug: "birthdays", description: "Family celebrations and event highlights." },
   { title: "Live Feed", slug: "live-feed", description: "On-site multi-camera screen coverage." },
