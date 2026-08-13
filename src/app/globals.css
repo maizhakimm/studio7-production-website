@@ -132,9 +132,14 @@ a {
   transition: transform 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link-active::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+
+.nav-link-active {
+  color: var(--foreground);
 }
 
 .text-link {
