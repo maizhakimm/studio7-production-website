@@ -1,43 +1,13 @@
 import Link from "next/link";
-import { AtSign, Mail, MapPin } from "lucide-react";
-import { PageHero } from "@/components/page-hero";
+import { ArrowRight, AtSign, MapPin } from "lucide-react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 export default function ContactPage() {
-  return (
-    <main>
-      <SiteHeader />
-      <PageHero
-        eyebrow="Contact"
-        title="Ready for Malaysia and Singapore enquiries."
-        intro="The website can route visitors to the inquiry flow, Instagram and future WhatsApp contact once final details are confirmed."
-      />
-      <section className="mx-auto grid max-w-7xl gap-0 px-5 pb-24 md:grid-cols-3">
-        <div className="border-y border-[#ddd0bd] py-8">
-          <MapPin className="text-[#b8893d]" />
-          <h2 className="mt-8 text-2xl font-semibold">Coverage</h2>
-          <p className="mt-3 text-[#6f6a61]">Malaysia & Singapore</p>
-        </div>
-        <div className="border-y border-[#ddd0bd] py-8 md:px-8">
-          <AtSign className="text-[#b8893d]" />
-          <h2 className="mt-8 text-2xl font-semibold">Instagram</h2>
-          <a
-            className="mt-3 block text-[#6f6a61] transition hover:text-[#b8893d]"
-            href="https://www.instagram.com/studio7production_videophoto"
-          >
-            @studio7production_videophoto
-          </a>
-        </div>
-        <div className="border-y border-[#ddd0bd] py-8">
-          <Mail className="text-[#b8893d]" />
-          <h2 className="mt-8 text-2xl font-semibold">Inquiry</h2>
-          <Link className="mt-3 block text-[#6f6a61] transition hover:text-[#b8893d]" href="/inquiry">
-            Submit project details
-          </Link>
-        </div>
-      </section>
-      <SiteFooter />
-    </main>
-  );
+  return <main className="bg-white text-[#141414]"><SiteHeader />
+    <section className="px-5 pb-10 pt-28 text-center md:px-8 md:pb-12 md:pt-32"><div className="mx-auto max-w-7xl"><p className="eyebrow">Contact</p><h1 className="display-serif mx-auto mt-3 max-w-3xl text-4xl leading-none md:text-6xl">Let’s start with a simple conversation.</h1><p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-black/55">For general questions, collaborations or production enquiries. If you already have an event date, use the detailed inquiry form for a customised quotation.</p></div></section>
+    <section className="px-5 pb-24 md:px-8"><div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+      <aside className="rounded-lg bg-[#f5f4f1] p-7 md:p-9"><p className="eyebrow">Studio details</p><div className="mt-8 grid gap-7"><div className="flex gap-4"><MapPin className="mt-1 shrink-0 text-[#d6472c]" size={19} /><div><h2 className="font-semibold">Malaysia</h2><p className="mt-1 text-sm leading-6 text-black/50">Studio address to be confirmed</p></div></div><div className="flex gap-4"><MapPin className="mt-1 shrink-0 text-[#d6472c]" size={19} /><div><h2 className="font-semibold">Singapore</h2><p className="mt-1 text-sm leading-6 text-black/50">Coverage base details to be confirmed</p></div></div><a className="flex gap-4 transition hover:text-[#d6472c]" href="https://www.instagram.com/studio7production_videophoto/" rel="noreferrer" target="_blank"><AtSign className="mt-1 shrink-0" size={19} /><div><h2 className="font-semibold">Instagram</h2><p className="mt-1 text-sm text-black/50">@studio7production_videophoto</p></div></a></div><div className="mt-10 border-t border-black/10 pt-7"><p className="text-sm leading-6 text-black/55">Planning an event? The inquiry form collects the details needed to recommend coverage and prepare a quotation.</p><Link className="text-link mt-5 inline-flex items-center gap-2 border-b border-black pb-1 text-sm font-semibold" href="/inquiry">Check your date <ArrowRight size={16} /></Link></div></aside>
+      <form className="grid content-start gap-5 rounded-lg border border-black/10 p-6 md:p-9"><div><p className="eyebrow">General message</p><h2 className="display-serif mt-3 text-4xl">How can we help?</h2></div><div className="grid gap-4 md:grid-cols-2"><label className="grid gap-2 text-sm font-semibold">Name<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="name" required /></label><label className="grid gap-2 text-sm font-semibold">Email<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="email" required type="email" /></label></div><label className="grid gap-2 text-sm font-semibold">Subject<input className="rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="subject" required /></label><label className="grid gap-2 text-sm font-semibold">Message<textarea className="min-h-40 rounded-lg border border-black/10 bg-[#f8f7f5] px-4 py-3 font-normal outline-none focus:border-[#d6472c]" name="message" required /></label><button className="premium-button rounded-full bg-[#141414] px-6 py-3.5 text-sm font-semibold text-white" title="Email delivery setup pending" type="button">Send message</button><p className="text-center text-xs text-black/40">Message delivery will be enabled after the official recipient email is confirmed.</p></form>
+    </div></section><SiteFooter /></main>;
 }

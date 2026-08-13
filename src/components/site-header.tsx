@@ -29,7 +29,7 @@ export function SiteHeader() {
               </div>
             </div>
           </div>
-          {navItems.slice(0, 4).filter((item) => item.href !== "/portfolio").map((item) => <Link aria-current={isActive(item.href) ? "page" : undefined} className={`nav-link transition hover:text-black ${isActive(item.href) ? "nav-link-active text-black" : ""}`} href={item.href} key={item.href}>{item.label}</Link>)}
+          {navItems.filter((item) => item.href !== "/portfolio" && item.href !== "/inquiry").map((item) => <Link aria-current={isActive(item.href) ? "page" : undefined} className={`nav-link transition hover:text-black ${isActive(item.href) ? "nav-link-active text-black" : ""}`} href={item.href} key={item.href}>{item.label}</Link>)}
         </nav>
         <Link className="premium-button hidden rounded-full bg-[#141414] px-5 py-3 text-[13px] font-semibold text-white md:inline-flex" href="/inquiry">
           Check your date

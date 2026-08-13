@@ -8,7 +8,7 @@ import { SiteHeader } from "@/components/site-header";
 import { getHomeContent } from "@/lib/get-home-content";
 
 export default async function Home() {
-  const { coverage, headline, intro, portfolio, services } = await getHomeContent();
+  const { intro, portfolio, services } = await getHomeContent();
   const featured = portfolio.slice(0, 6);
   const businessTitles = new Set(["Corporate", "Live feed", "Live streaming"]);
   const celebrationServices = services.filter((service) => !businessTitles.has(service.title));
@@ -20,9 +20,9 @@ export default async function Home() {
 
       <section className="px-5 pb-12 pt-32 text-center md:px-8 md:pb-16 md:pt-40">
         <div className="mx-auto max-w-7xl">
-          <p className="eyebrow hero-enter hero-enter-1">{coverage}</p>
+          <p className="hero-enter hero-enter-1 flex items-center justify-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-black/55"><span aria-hidden="true" className="text-base">🇲🇾</span> Malaysia <span className="text-black/25">·</span> <span aria-hidden="true" className="text-base">🇸🇬</span> Singapore</p>
           <h1 className="display-serif hero-enter hero-enter-2 mx-auto mt-5 max-w-[15ch] text-[clamp(3rem,6.5vw,5.5rem)] leading-[1.01]">
-            {headline}
+            Stories worth <span className="italic text-[#d6472c]">watching twice.</span>
           </h1>
           <p className="hero-enter hero-enter-3 mx-auto mt-6 max-w-[48ch] text-base leading-7 text-black/60 md:text-lg">
             {intro}
@@ -39,8 +39,8 @@ export default async function Home() {
 
       <section className="border-y border-black/10 px-5 py-6 md:px-8">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-2 text-center text-sm text-black/55">
-          <p className="display-serif text-xl font-semibold text-[#141414]">Malaysia · Singapore</p>
-          <p>Weddings · Corporate · Celebrations · Live coverage</p>
+          <p className="display-serif text-xl font-semibold text-[#141414]">Photography · Films · Live Production</p>
+          <p>Personal storytelling with professional production support</p>
         </div>
       </section>
 
@@ -83,13 +83,13 @@ export default async function Home() {
             <Reveal className="service-panel border border-black/10 p-6 md:p-8">
               <h3 className="display-serif text-xl italic text-black/75">For celebrations</h3>
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
-                {celebrationServices.map((service) => <span className="border-b border-black/15 pb-1 text-sm font-medium" key={service.title}>{service.title}</span>)}
+                {celebrationServices.map((service) => <Link className="rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:border-[#d6472c] hover:bg-[#d6472c] hover:text-white" href="/services" key={service.title}>{service.title}</Link>)}
               </div>
             </Reveal>
             <Reveal className="service-panel border border-black/10 p-6 md:p-8" delay={100}>
               <h3 className="display-serif text-xl italic text-black/75">For business and live</h3>
               <div className="mt-5 flex flex-wrap gap-x-5 gap-y-3">
-                {businessServices.map((service) => <span className="border-b border-black/15 pb-1 text-sm font-medium" key={service.title}>{service.title}</span>)}
+                {businessServices.map((service) => <Link className="rounded-full border border-black/10 px-4 py-2 text-sm font-medium transition hover:-translate-y-0.5 hover:border-[#d6472c] hover:bg-[#d6472c] hover:text-white" href="/services" key={service.title}>{service.title}</Link>)}
               </div>
             </Reveal>
           </div>
@@ -98,10 +98,13 @@ export default async function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <Reveal className="mx-auto max-w-7xl">
-          <div className="flex flex-col items-center justify-center gap-7 bg-[#f5f4f1] p-8 text-center md:p-14">
+          <div className="relative flex min-h-[380px] flex-col items-center justify-center gap-7 overflow-hidden rounded-lg bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center p-8 text-center text-white md:p-14">
+            <div className="absolute inset-0 bg-black/60" />
+            <div className="relative z-10 flex flex-col items-center gap-7">
             <p className="eyebrow">Your event, your coverage</p>
             <h2 className="display-serif max-w-[24ch] text-3xl italic leading-tight md:text-4xl">Tell us what you are planning. We will shape the photo and video coverage around it.</h2>
-            <Link className="premium-button inline-flex items-center gap-2 rounded-full bg-[#141414] px-7 py-3.5 text-sm font-semibold text-white" href="/inquiry">Plan your coverage <ArrowRight size={17} /></Link>
+            <Link className="premium-button inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#141414]" href="/inquiry">Plan your coverage <ArrowRight size={17} /></Link>
+            </div>
           </div>
         </Reveal>
       </section>

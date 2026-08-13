@@ -24,7 +24,7 @@ export function SiteFooter() {
           <div>
             <p className="eyebrow">Explore</p>
             <div className="mt-4 flex flex-col gap-2.5 text-sm text-black/65">
-              {navItems.slice(0, 4).map((item) => <Link className="transition hover:text-black" href={item.href} key={item.href}>{item.label}</Link>)}
+              {navItems.filter((item) => item.href !== "/inquiry" && item.href !== "/contact").map((item) => <Link className="transition hover:text-black" href={item.href} key={item.href}>{item.label}</Link>)}
             </div>
           </div>
           <div>
@@ -39,8 +39,8 @@ export function SiteFooter() {
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap justify-between gap-2 border-t border-black/10 pt-5 text-xs text-black/45">
-          <span>© 2026 Studio 7 Production</span><span>Malaysia · Singapore</span>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-black/10 pt-5 text-xs text-black/45">
+          <span>© 2026 Studio 7 Production</span><div className="flex flex-wrap gap-4"><Link className="hover:text-black" href="/faq">FAQ</Link><Link className="hover:text-black" href="/terms">Terms</Link><Link className="hover:text-black" href="/privacy">Privacy Policy</Link><span>Malaysia · Singapore</span></div>
         </div>
       </div>
       <button aria-label="WhatsApp number to be added" className="fixed bottom-24 right-5 z-40 grid size-14 cursor-not-allowed place-items-center rounded-full bg-[#25D366] text-white shadow-[0_12px_30px_rgba(37,211,102,0.32)] md:bottom-6 md:right-6" title="WhatsApp number to be added" type="button"><BrandIcon path={whatsappPath} size={27} /></button>
