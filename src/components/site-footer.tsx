@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navItems } from "@/lib/content";
 
 export function SiteFooter() {
@@ -7,7 +8,9 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 pb-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.6fr_0.9fr]">
           <div>
-            <div className="display-serif text-[22px] font-medium">STUDIO<span className="italic text-[#d6472c]">7</span></div>
+            <div className="relative h-28 w-36">
+              <Image alt="Studio 7 Production" className="object-contain object-left" fill src="/brand/studio7-footer.svg" />
+            </div>
             <p className="mt-3 max-w-sm text-sm leading-6 text-black/55">Videography and photography for weddings, corporate events and life moments across Malaysia and Singapore.</p>
           </div>
           <div>
@@ -20,7 +23,7 @@ export function SiteFooter() {
             <p className="eyebrow">Connect</p>
             <div className="mt-4 flex flex-col gap-2.5 text-sm text-black/65">
               <a className="transition hover:text-black" href="https://www.instagram.com/studio7production_videophoto/" rel="noreferrer" target="_blank">Instagram</a>
-              <Link className="transition hover:text-black" href="/inquiry">Start an inquiry</Link>
+              <Link className="transition hover:text-black" href="/inquiry">Plan your coverage</Link>
               <Link className="transition hover:text-black" href="/contact">Contact</Link>
             </div>
           </div>

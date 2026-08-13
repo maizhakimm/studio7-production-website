@@ -15,7 +15,7 @@ export function HeroReel() {
   }
 
   return (
-    <div className="relative mt-10 aspect-[5/4] overflow-hidden rounded-lg bg-[#f5f4f1] sm:aspect-[16/9] lg:mt-14 lg:max-h-[610px]">
+    <div className="hero-reel relative mt-10 aspect-[5/4] overflow-hidden rounded-lg bg-[#f5f4f1] sm:aspect-[16/9] lg:mt-14 lg:max-h-[610px]">
       <video aria-label="Studio 7 showreel sample" autoPlay className="h-full w-full object-cover" loop muted playsInline poster="https://images.pexels.com/videos/28952503/pexels-photo-28952503.jpeg?auto=compress&cs=tinysrgb&h=800&fit=crop&w=1600" ref={videoRef}>
         <source src="https://videos.pexels.com/video-files/28952503/12526932_1440_2560_30fps.mp4" type="video/mp4" />
       </video>
