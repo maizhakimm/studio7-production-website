@@ -98,8 +98,9 @@ export default async function Home() {
 
       <section className="px-5 pb-20 md:px-8 md:pb-28">
         <Reveal className="mx-auto max-w-7xl">
-          <div className="relative flex min-h-[380px] flex-col items-center justify-center gap-7 overflow-hidden rounded-lg bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center p-8 text-center text-white md:p-14">
-            <div className="absolute inset-0 bg-black/60" />
+          <div className="relative flex min-h-[380px] flex-col items-center justify-center gap-7 overflow-hidden rounded-lg p-8 text-center text-white md:p-14">
+            <div className="absolute inset-0 scale-105 bg-[url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1800&q=80')] bg-cover bg-center opacity-35 grayscale" />
+            <div className="absolute inset-0 bg-black/70" />
             <div className="relative z-10 flex flex-col items-center gap-7">
             <p className="eyebrow">Your event, your coverage</p>
             <h2 className="display-serif max-w-[24ch] text-3xl italic leading-tight md:text-4xl">Tell us what you are planning. We will shape the photo and video coverage around it.</h2>

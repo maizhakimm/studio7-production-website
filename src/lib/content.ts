@@ -32,11 +32,11 @@ export type HomeContent = {
 
 export const navItems = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Gallery", href: "/gallery" },
-  { label: "About", href: "/about" },
-  { label: "Inquiry", href: "/inquiry" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" }
 ];
 
